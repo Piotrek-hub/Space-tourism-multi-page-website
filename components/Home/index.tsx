@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import Navbar from '../Shared/Navbar';
 
+import { motion } from 'framer-motion';
+
 export default function Home() {
+	const [isMouseOn, setMouseOn] = useState<boolean>(false);
+
 	return (
 		<div className="w-screen h-screen bg-home-desktop lg:bg-home-tablet xs:bg-home-mobile bg-no-repeat bg-cover select-none">
 			<Navbar />
@@ -19,11 +24,15 @@ export default function Home() {
 						we’ll give you a truly out of this world experience!
 					</span>
 				</div>
-				<div className="flex flex-col items-center justify-around h-[300px] w-[300px] xs:h-[180px] xs:w-[180px] bg-white rounded-full z-10 xl:mt-[100px]">
+				<motion.div
+					whileHover={{ scale: 1.15 }}
+					transition={{ duration: 0.3 }}
+					className="flex flex-col items-center justify-around h-[300px] w-[300px] xs:h-[180px] xs:w-[180px] bg-white rounded-full z-10 xl:mt-[100px]"
+				>
 					<span className="font-bellefair text-[32px] xs:text-[20px] tracking-[2px] z-10">
 						EXPLORE
 					</span>
-				</div>
+				</motion.div>
 			</div>
 		</div>
 	);
