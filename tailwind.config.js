@@ -5,21 +5,30 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
+      xxl: { max: '1600px' },
+      xl: { max: '1279px' },
+      lg: { max: '1023px' },
+      md: { max: '767px' },
+      sm: { max: '639px' },
+      xs: { max: '439px' },
     },
     colors: {
-      'darkblue': '#0B0D17',
+      'black': '#0B0D17',
       'lightblue': '#D0D6F9',
       'white': '#FFFFFF'
     },
     fontFamily: {
       bellefair: ['Bellefair'],
       barlowCondensed: ['Barlow Condensed'],
+      barlow: ['Barlow'],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'home-desktop': "url('/assets/home/background-home-desktop.jpg')",
+        'home-tablet': "url('/assets/home/background-home-tablet.jpg')",
+        'home-mobile': "url('/assets/home/background-home-mobile.jpg')",
+      }
+    },
   },
   plugins: [],
 }
