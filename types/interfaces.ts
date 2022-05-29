@@ -1,4 +1,4 @@
-interface Destination {
+interface IDestination {
 	title: string;
 	description: string;
 	imageURL: string;
@@ -6,4 +6,4 @@ interface Destination {
 	estimatedTravelTime: string;
 }
 
-export type { Destination };
+export type { IDestination };
