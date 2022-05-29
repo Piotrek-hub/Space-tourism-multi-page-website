@@ -78,7 +78,7 @@ const destinations: IDestination[] = [
 			'Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!',
 		imageURL: '/assets/destination/image-mars.png',
 		averageDistance: '225 MIL. KM',
-		estimatedTravelTime: '9 months',
+		estimatedTravelTime: '9 MONTHS',
 	},
 	{
 		title: 'EUROPA',
@@ -86,7 +86,7 @@ const destinations: IDestination[] = [
 			'The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.',
 		imageURL: '/assets/destination/image-europa.png',
 		averageDistance: '628 MIL. KM',
-		estimatedTravelTime: '3 years',
+		estimatedTravelTime: '3 YEARS',
 	},
 	{
 		title: 'TITAN',
@@ -94,6 +94,6 @@ const destinations: IDestination[] = [
 			'The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.',
 		imageURL: '/assets/destination/image-titan.png',
 		averageDistance: '1.6 BIL. KM',
-		estimatedTravelTime: '7 years',
+		estimatedTravelTime: '7 YEARS',
 	},
 ];

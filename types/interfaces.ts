@@ -6,4 +6,11 @@ interface IDestination {
 	estimatedTravelTime: string;
 }
 
-export type { IDestination };
+interface ICrew {
+	title: string;
+	name: string;
+	description: string;
+	imageURL: string;
+}
+
+export type { IDestination, ICrew };

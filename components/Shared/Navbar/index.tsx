@@ -28,6 +28,7 @@ export default function Navbar() {
 			>
 				{menuOptions.map((option) => (
 					<motion.div
+						key={option.num}
 						animate={{ y: [50, 0], opacity: [0, 1] }}
 						transition={{ duration: 0.7, delay: option.delay }}
 						initial={true}

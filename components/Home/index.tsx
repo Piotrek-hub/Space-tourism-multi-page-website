@@ -1,10 +1,11 @@
-import { useState } from 'react';
 import Navbar from '../Shared/Navbar';
 
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 export default function Home() {
-	const [isMouseOn, setMouseOn] = useState<boolean>(false);
+	const controls = useAnimation();
+	const animation = { scale: 1.5 };
+	const reanimation = { scale: 0.33 };
 
 	return (
 		<div className="w-screen min-h-screen bg-home-desktop tablet:bg-home-tablet mobile:bg-home-mobile bg-no-repeat bg-cover select-none">
@@ -24,15 +25,26 @@ export default function Home() {
 						we’ll give you a truly out of this world experience!
 					</span>
 				</div>
-				<motion.div
-					whileHover={{ scale: 1.15 }}
-					transition={{ duration: 0.3 }}
-					className="flex flex-col items-center justify-around h-[300px] w-[300px] mobile:h-[180px] mobile:w-[180px] bg-white rounded-full z-10 tablet:mt-[100px]"
-				>
-					<span className="font-bellefair text-[32px] mobile:text-[20px] tracking-[2px] z-10">
-						EXPLORE
-					</span>
-				</motion.div>
+				<div className="flex flex-col items-center justify-around">
+					<motion.div
+						animate={controls}
+						transition={{ duarion: 1, ease: 'easeInOut' }}
+						className="absolute h-[300px] w-[300px] mobile:h-[180px] mobile:w-[180px] bg-[#979797] rounded-full"
+					></motion.div>
+					<motion.div
+						onHoverStart={() => {
+							controls.start(animation);
+						}}
+						onHoverEnd={() => {
+							controls.start(reanimation);
+						}}
+						className="h-[300px] w-[300px] mobile:h-[180px] mobile:w-[180px] bg-white rounded-full z-20 tablet:mt-[100px] flex flex-col items-center justify-around hover:cursor-pointer"
+					>
+						<span className="font-bellefair text-[32px] mobile:text-[20px] tracking-[2px] z-20">
+							EXPLORE
+						</span>
+					</motion.div>
+				</div>
 			</div>
 		</div>
 	);
