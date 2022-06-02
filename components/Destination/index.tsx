@@ -23,7 +23,7 @@ export default function Destination(props: DestinationComponent) {
 	}, []);
 
 	return (
-		<div className="flex justify-between items-start tablet:items-center tablet:flex-col mt-[70px]">
+		<div className="flex justify-between h-full items-start tablet:items-center mobile:items-center tablet:flex-col ">
 			<motion.div className="w-[550px] h-[550px] relative tablet:w-[350px] tablet:h-[350px] mobile:w-[200px] mobile:h-[200px] select-none">
 				<Image src={props.imageURL} layout="fill" />
 			</motion.div>

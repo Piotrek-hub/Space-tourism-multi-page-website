@@ -1,8 +1,30 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import CrewMember from '../components/Crew';
 import Navbar from '../components/Shared/Navbar';
 
+import { ICrew } from '../types/interfaces';
+
+enum CrewMemberEnum {
+	DOUGLAS = 'DOUGLAS',
+	MARK = 'MARK',
+	VICTOR = 'VICTOR',
+	ANOUSHEH = 'ANOUSHEH',
+}
+
 export default function Crew() {
+	const [crewMemberChoice, setCrewMemberChoice] = useState<CrewMemberEnum>(
+		CrewMemberEnum.DOUGLAS
+	);
+
+	const [crewMemberData, setCrewMemberData] = useState<ICrew>(crewMembers[0]);
+
+	const setCrewMember = (crewMember: CrewMemberEnum) => {
+		setCrewMemberData(crewMembers[Number(crewMember)]);
+
+		setCrewMemberChoice(crewMember);
+	};
+
 	return (
 		<>
 			<Head>
@@ -13,18 +35,52 @@ export default function Crew() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className="w-screen h-screen bg-crew-desktop  tablet:bg-crew-tablet mobile:bg-crew-mobile bg-no-repeat bg-cover select-none bg-fixed mobile:h-auto">
+
+			<div className="w-screen grid h-screen mobile:min-h-screen place-items-start mobile:place-items-center bg-crew-desktop tablet:bg-crew-tablet mobile:bg-crew-mobile bg-no-repeat bg-cover select-none bg-fixed mobile:h-auto ">
 				<Navbar />
-				<div className="flex flex-col items-center justify-between tablet:flex-col mt-[50px] px-[200px] tablet:px-[0px] tablet:mt-[100px] mobile:mt-[40px]">
-					<div className="font-barlowCondensed text-[28px] tablet:text-[20px] tracking-[4.72px] self-start tablet:px-[50px] mobile:text-[16px] mobile:self-center">
-						<span className="text-white/[0.5] font-bold pr-5">
-							02
-						</span>
-						<span className="text-white">MEET YOUR CREW</span>
-					</div>
-					<CrewMember />
+				<div className="font-barlowCondensed self-start pl-[200px] text-[28px] my-[50px] tablet:text-[20px] mobile:my-[20px] tracking-[4.72px] tablet:px-[50px] mobile:text-[16px] mobile:self-center">
+					<span className="text-white/[0.5] font-bold pr-5">02</span>
+					<span className="text-white">MEET YOUR CREW</span>
+				</div>
+				<div className="grid  self-end h-auto palce-items-center px-[200px] tablet:px-[0px] mobile:mt-[40px] overflow-hidden">
+					<CrewMember
+						setCrewMemberData={setCrewMember}
+						crewMemberChoice={crewMemberChoice}
+						{...crewMemberData}
+					/>
 				</div>
 			</div>
 		</>
 	);
 }
+
+const crewMembers: ICrew[] = [
+	{
+		title: 'COMMANDER',
+		name: 'Douglas Hurley',
+		description:
+			'Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.',
+		imageURL: '/assets/crew/image-douglas-hurley.webp',
+	},
+	{
+		title: 'MISSION SPECIALIST',
+		name: 'MARK SHUTTLEWORTH',
+		description:
+			'Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist.',
+		imageURL: '/assets/crew/image-mark-shuttleworth.webp',
+	},
+	{
+		title: 'PILOT',
+		name: 'Victor Glover',
+		description:
+			'Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer. ',
+		imageURL: '/assets/crew/image-victor-glover.webp',
+	},
+	{
+		title: 'Flight Engineer',
+		name: 'Anousheh Ansari',
+		description:
+			'Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space. ',
+		imageURL: '/assets/crew/image-anousheh-ansari.webp',
+	},
+];

@@ -22,6 +22,8 @@ export default function DestinationPage() {
 	);
 
 	const setDestination = (destination: DestinationEnum) => {
+		console.log(destination);
+
 		setDestinationData(
 			destinations.filter(
 				(dest: IDestination) => dest.title === destination
@@ -41,17 +43,13 @@ export default function DestinationPage() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className="w-screen min-h-screen bg-destination-desktop tablet:bg-destination-tablet mobile:bg-destination-mobile bg-no-repeat bg-cover select-none bg-fixed mobile:h-auto">
+			<div className="w-screen grid content-start min-h-screen place-items-start bg-crew-desktop tablet:bg-crew-tablet mobile:bg-crew-mobile bg-no-repeat bg-cover select-none bg-fixed mobile:h-auto">
 				<Navbar />
-				<div className="flex flex-col items-center justify-between tablet:flex-col mt-[50px] px-[200px] tablet:px-[0px] tablet:mt-[100px] mobile:mt-[40px]">
-					<div className="font-barlowCondensed text-[28px] tablet:text-[20px] tracking-[4.72px] self-start tablet:px-[50px] mobile:text-[16px] mobile:self-center">
-						<span className="text-white/[0.5] font-bold pr-5">
-							01
-						</span>
-						<span className="text-white">
-							PICK YOUR DESTINATION
-						</span>
-					</div>
+				<div className="font-barlowCondensed  self-start pl-[200px] text-[28px] my-[50px] tablet:text-[20px] tracking-[4.72px] tablet:px-[50px] mobile:text-[16px] mobile:self-center">
+					<span className="text-white/[0.5] font-bold pr-5">01</span>
+					<span className="text-white">PICK YOUR DESTINATION</span>
+				</div>
+				<div className="grid self-end h-auto px-[200px] tablet:px-[0px] mobile:mt-[40px] tablet:self-start">
 					<DestinationComponent
 						destinationChoice={destinationChoice}
 						setDestination={setDestination}

@@ -12,7 +12,7 @@ export default function Navbar() {
 	// backdrop-blur-2tablet bg-[#979797]/[0.03]
 
 	return (
-		<div className="w-screen pt-12 pl-20 tablet:pt-0 flex items-center justify-between relative font-barlowCondensed mobile:px-6 mobile:pt-3">
+		<div className="w-screen  pt-12 pl-20 tablet:pt-0 flex items-center justify-between relative font-barlowCondensed mobile:px-6 mobile:pt-3">
 			<div className="w-14 h-14 relative mobile:w-12 mobile:h-12">
 				<Image src="/assets/shared/logo.svg" layout="fill" />
 			</div>
@@ -24,7 +24,7 @@ export default function Navbar() {
 				}}
 				whileHover={{ backdropFilter: 'blur(30px)' }}
 				transition={{ ease: 'easeOut', duration: 1 }}
-				className="hover:backdrop-blur[100px] w-[60%] h-24 flex items-center justify-evenly text-white text-[18px] tablet:text-[14px]  pr-20 tablet:pr-4 mobile:hidden"
+				className="hover:backdrop-blur[100px] w-[60%] h-24 flex items-center justify-evenly text-white text-[18px] tablet:text-[14px] pr-20 tablet:pr-4 mobile:hidden"
 			>
 				{menuOptions.map((option) => (
 					<motion.div
@@ -32,7 +32,7 @@ export default function Navbar() {
 						animate={{ y: [50, 0], opacity: [0, 1] }}
 						transition={{ duration: 0.7, delay: option.delay }}
 						initial={true}
-						className="h-full grid place-items-center tracking-[3.5px] cursor-pointer hover:border-b-4 border-white px-2 "
+						className="h-full grid place-items-center tracking-[3.5px] cursor-pointer hover:border-b-4 border-white px-2"
 					>
 						<div>
 							<span className="font-bold pr-2 tablet:hidden">
