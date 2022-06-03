@@ -12,7 +12,7 @@ export default function Navbar() {
 	// backdrop-blur-2tablet bg-[#979797]/[0.03]
 
 	return (
-		<div className="w-screen  pt-12 pl-20 tablet:pt-0 flex items-center justify-between relative font-barlowCondensed mobile:px-6 mobile:pt-3">
+		<div className="w-screen pt-12 pl-20 tablet:pt-0 flex items-center justify-between relative font-barlowCondensed mobile:px-6 mobile:pt-3">
 			<div className="w-14 h-14 relative mobile:w-12 mobile:h-12">
 				<Image src="/assets/shared/logo.svg" layout="fill" />
 			</div>

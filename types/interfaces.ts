@@ -13,4 +13,10 @@ interface ICrew {
 	imageURL: string;
 }
 
-export type { IDestination, ICrew };
+interface ITechnology {
+	title: string;
+	description: string;
+	imageURL: string;
+}
+
+export type { IDestination, ICrew, ITechnology };
