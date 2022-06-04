@@ -1,10 +1,16 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function Navbar() {
 	const [menuVisible, setMenuVisible] = useState(false);
+
+	const controls = useAnimation();
+	const animation = {
+		x: [200, 0],
+		'backdrop-filter': ['blur(0px)', 'blur(32px)', 'blur(50px)'],
+	};
 
 	useEffect(() => {
 		console.log(menuVisible);
@@ -37,8 +43,8 @@ export default function Navbar() {
 				{menuOptions.map((option) => (
 					<motion.div
 						key={option.num}
-						animate={{ y: [50, 0], opacity: [0, 1] }}
-						transition={{ duration: 0.7, delay: option.delay }}
+						animate={{ y: [30, 0], opacity: [0, 1] }}
+						transition={{ duration: 0.3, delay: option.delay }}
 						initial={true}
 						className="h-full grid place-items-center tracking-[3.5px] cursor-pointer hover:border-b-4 border-white px-2"
 					>
@@ -59,11 +65,14 @@ export default function Navbar() {
 					layout="fill"
 					onClick={() => {
 						setMenuVisible(!menuVisible);
+						controls.start(animation);
 					}}
 				/>
 			</div>
-			<div
-				className={`backdrop-blur-[50px] w-3/4 h-screen top-0 right-0 z-30 hidden mobile:flex-col mobile:items-start text-white fixed pt-32 ${
+			<motion.div
+				animate={controls}
+				transition={{ duarion: 1, ease: 'easeInOut' }}
+				className={`backdrop-blur-[50px]  w-3/4 h-screen top-0 right-0 z-30 hidden mobile:flex-col mobile:items-start text-white fixed pt-32 ${
 					menuVisible ? 'mobile:flex' : 'hidden'
 				} `}
 			>
@@ -74,7 +83,10 @@ export default function Navbar() {
 					<motion.div
 						key={option.num}
 						animate={{ y: [50, 0], opacity: [0, 1] }}
-						transition={{ duration: 0.7, delay: option.delay }}
+						transition={{
+							duration: 0.7,
+							delay: option.delay + 0.5,
+						}}
 						initial={true}
 						className="grid place-items-start tracking-[3.5px] cursor-pointer hover:border-b-4 border-white pl-10 py-6 w-full mobile:border-none "
 					>
@@ -88,7 +100,7 @@ export default function Navbar() {
 						</div>
 					</motion.div>
 				))}
-			</div>
+			</motion.div>
 		</div>
 	);
 }
