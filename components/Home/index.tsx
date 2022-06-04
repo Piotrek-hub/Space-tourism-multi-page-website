@@ -1,6 +1,7 @@
 import Navbar from '../Shared/Navbar';
 
 import { motion, useAnimation } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Home() {
 	const controls = useAnimation();
@@ -29,7 +30,7 @@ export default function Home() {
 					<motion.div
 						animate={controls}
 						transition={{ duarion: 1, ease: 'easeInOut' }}
-						className="absolute h-[300px] w-[300px] mobile:h-[180px] mobile:w-[180px] bg-[#979797] rounded-full"
+						className="absolute h-[300px] w-[300px] mobile:h-[180px] mobile:w-[180px] bg-[#979797] rounded-full tablet:mt-[100px]"
 					></motion.div>
 					<motion.div
 						onHoverStart={() => {
@@ -40,9 +41,11 @@ export default function Home() {
 						}}
 						className="h-[300px] w-[300px] mobile:h-[180px] mobile:w-[180px] bg-white rounded-full z-20 tablet:mt-[100px] flex flex-col items-center justify-around hover:cursor-pointer"
 					>
-						<span className="font-bellefair text-[32px] mobile:text-[20px] tracking-[2px] z-20">
-							EXPLORE
-						</span>
+						<Link href="/destination">
+							<span className="font-bellefair text-[32px] mobile:text-[20px] tracking-[2px] z-20">
+								EXPLORE
+							</span>
+						</Link>
 					</motion.div>
 				</div>
 			</div>
